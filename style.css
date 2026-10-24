@@ -1,0 +1,244 @@
+/* Scratch2Build Assignment #2 — starter stylesheet
+   Complete the TODOs. Do not use external CSS frameworks. */
+
+:root {
+  --color-page: #f4f6fb;
+  --color-surface: #ffffff;
+  --color-text: #20243a;
+  --color-muted: #747b91;
+  --color-primary: #5b5bd6;
+  --color-border: #e5e8f0;
+  --color-accent-soft: #eeeeff;
+  --color-success: #16876a;
+  --radius-card: 16px;
+  --shadow-card: 0 8px 28px rgba(34, 42, 74, 0.06);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-page);
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+/* TODO 1: Build the main dashboard shell with CSS Grid or Flexbox. */
+.dashboard {
+  min-height: 100vh;
+}
+
+/* TODO 2: Style the sidebar and arrange its navigation links. */
+.sidebar {
+  background: var(--color-surface);
+  padding: 24px;
+}
+
+.brand {
+  display: inline-block;
+  margin-bottom: 24px;
+  color: var(--color-text);
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.nav-links {
+  display: flex;
+  gap: 10px;
+}
+
+.nav-links a {
+  padding: 10px 12px;
+  border-radius: 10px;
+}
+
+.nav-links a[aria-current="page"] {
+  background: var(--color-accent-soft);
+  color: var(--color-primary);
+}
+
+.main-content {
+  min-width: 0;
+  padding: 24px;
+}
+
+/* TODO 3: Use Flexbox to align the header title and profile. */
+.topbar,
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.eyebrow,
+.card-label,
+.card-note,
+.welcome p,
+.activity-list p,
+.footer {
+  color: var(--color-muted);
+}
+
+.eyebrow {
+  margin: 0 0 4px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 0;
+  font-size: clamp(1.6rem, 4vw, 2rem);
+}
+
+h2 {
+  font-size: 1.2rem;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+}
+
+.avatar {
+  display: grid;
+  width: 40px;
+  aspect-ratio: 1;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--color-accent-soft);
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.welcome {
+  margin: 32px 0 20px;
+}
+
+.welcome h2 {
+  margin-bottom: 6px;
+}
+
+.welcome p {
+  margin-bottom: 0;
+}
+
+/* TODO 4: Use a responsive grid, e.g. repeat(auto-fit, minmax(220px, 1fr)). */
+.analytics {
+  display: grid;
+  gap: 16px;
+}
+
+.metric-card,
+.activity-panel {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
+}
+
+.metric-card {
+  padding: 22px;
+}
+
+.card-label,
+.card-note {
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+}
+
+.metric-value {
+  margin-bottom: 8px;
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.card-note {
+  margin-bottom: 0;
+}
+
+.activity-panel {
+  margin-top: 24px;
+  padding: 24px;
+}
+
+.section-heading h2 {
+  margin-bottom: 0;
+}
+
+.activity-list {
+  display: grid;
+  gap: 18px;
+  margin: 20px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.activity-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.activity-dot {
+  width: 10px;
+  height: 10px;
+  margin-top: 6px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: var(--color-success);
+}
+
+.activity-list strong {
+  font-size: 0.95rem;
+}
+
+.activity-list p {
+  margin: 4px 0 0;
+  font-size: 0.85rem;
+}
+
+.footer {
+  padding-top: 24px;
+  font-size: 0.8rem;
+}
+
+/* TODO 5: Add a mobile breakpoint and verify at 375px wide. */
+@media (max-width: 600px) {
+  .main-content {
+    padding: 16px;
+  }
+
+  .sidebar {
+    padding: 16px;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+  }
+
+  .profile > span:last-child {
+    display: none;
+  }
+}

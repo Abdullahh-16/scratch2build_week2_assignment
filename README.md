@@ -33,31 +33,63 @@ Your dashboard must include:
 - `index.html` — page structure and sample dashboard content.
 - `style.css` — starter CSS. Complete the layout and responsive rules yourself.
 
-## GitHub workflow
-Use the branch name required by the assignment: `feature/responsive-dashboard`.
+## GitHub Workflow
 
-1. Start from the repository's `main` branch.
-2. Create the assignment branch:
-   ```bash
-   git checkout main
-   git pull origin main
-   git checkout -b feature/responsive-dashboard
-   ```
-3. Work on `index.html` and `style.css`.
-4. Preview the page in a browser and test at 375px width.
-5. Stage and commit your changes:
-   ```bash
-   git add index.html style.css
-   git commit -m "Build responsive dashboard UI"
-   ```
-6. Push the branch:
-   ```bash
-   git push -u origin feature/responsive-dashboard
-   ```
-7. On GitHub, open a Pull Request with **base: `main`** and **compare: `feature/responsive-dashboard`**. Add a clear title and summary, then submit it before the confirmed deadline.
-8. If a reviewer requests changes, push additional commits to the same branch; they will appear in the open PR.
+Each participant must work on their own fork of this repository.
 
-> If all students share one repository, confirm with the organizers whether each student should work in a fork or use a unique branch name. The required branch name above follows the assignment PDF.
+### 1. Fork the Repository
+
+Click the **Fork** button on GitHub to create your own copy of this repository.
+
+### 2. Clone Your Fork
+
+Clone your fork to your computer:
+
+```bash
+git clone <YOUR_FORK_URL>
+cd scratch2build-responsive-dashboard
+```
+
+Replace `<YOUR_FORK_URL>` with the URL of your own fork.
+
+### 3. Create the Required Branch
+
+```bash
+git checkout main
+git pull origin main
+git checkout -b feature/responsive-dashboard
+```
+
+### 4. Complete the Assignment
+
+Edit `index.html` and `style.css`.
+
+Test your dashboard in the browser at desktop and mobile sizes. Ensure that the layout works at a viewport width of 375px without horizontal scrolling.
+
+### 5. Commit and Push Your Work
+
+```bash
+git add index.html style.css
+git commit -m "Build responsive dashboard UI"
+git push -u origin feature/responsive-dashboard
+```
+
+### 6. Open a Pull Request
+
+On GitHub, open a Pull Request from your fork's `feature/responsive-dashboard` branch into the original repository's `main` branch.
+
+Set the base repository to `FCAI-E-Club-Tech-Committee/scratch2build-responsive-dashboard`.
+
+Use the Pull Request template and complete its checklist before submitting.
+
+### 7. Handle Review Feedback
+
+If a reviewer requests changes, make the necessary updates and push additional commits to the same branch. The commits will appear in your existing Pull Request.
+
+### 8. Deadline
+
+Submit your Pull Request before the official deadline announced by the organizers. Check the exact calendar date and time before submitting.
+
 
 ## Pull Request checklist
 Before opening your PR, confirm:

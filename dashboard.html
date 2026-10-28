@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Responsive Personal Dashboard</title>
+<style>
+    /* 4. Theme Customization: Custom Variables */
+    :root {
+        --bg-color: #f8fafc;
+        --sidebar-bg: #1e293b;
+        --sidebar-text: #f1f5f9;
+        --header-bg: #ffffff;
+        --header-text: #0f172a;
+        --card-bg: #ffffff;
+        --text-main: #334155;
+        --text-muted: #64748b;
+        --accent-color: #3b82f6;
+        --border-color: #e2e8f0;
+    }
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-main);
+        display: flex;
+        height: 100vh;
+        overflow: hidden; /* Prevent body scroll, manage in main-content */
+    }
+
+    /* 2. Structural & Layout Architecture: Sidebar Navigation */
+    .sidebar {
+        width: 260px;
+        background-color: var(--sidebar-bg);
+        color: var(--sidebar-text);
+        display: flex;
+        flex-direction: column;
+    }
+
+    .sidebar-header {
+        padding: 24px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .nav-links {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        padding: 20px 0;
+    }
+
+    .nav-links li {
+        padding: 16px 24px;
+        cursor: pointer;
+        transition: background-color 0.2s;
+    }
+
+    .nav-links li:hover {
+        background-color: rgba(255,255,255,0.1);
+        border-left: 4px solid var(--accent-color);
+    }
+
+    .main-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+    }
+
+    /* 2. Structural & Layout Architecture: Header Bar (Aligned using Flexbox) */
+    .header {
+        background-color: var(--header-bg);
+        color: var(--header-text);
+        padding: 20px 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid var(--border-color);
+    }
+    
+    .header-nav {
+        display: flex;
+        gap: 20px;
+    }
+
+    .content-wrapper {
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    /* 2. Structural & Layout Architecture: Main Analytics Grid (Using Grid & minmax) */
+    .analytics-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 24px;
+    }
+
+    .card {
+        background-color: var(--card-bg);
+        padding: 24px;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        border: 1px solid var(--border-color);
+    }
+
+    .card h3 {
+        margin-bottom: 12px;
+        font-size: 1.1rem;
+        color: var(--text-muted);
+        font-weight: 500;
+    }
+    
+    .card .value {
+        font-size: 2.2rem;
+        font-weight: 700;
+        color: var(--accent-color);
+    }
+
+    /* 2. Structural & Layout Architecture: Recent Activity Feed */
+    .activity-feed {
+        background-color: var(--card-bg);
+        padding: 24px;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        border: 1px solid var(--border-color);
+    }
+
+    .activity-feed h2 {
+        margin-bottom: 20px;
+        font-size: 1.25rem;
+        color: var(--header-text);
+    }
+
+    .activity-item {
+        padding: 16px 0;
+        border-bottom: 1px solid var(--border-color);
+        display: flex;
+        align-items: center;
+    }
+
+    .activity-item:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+
+    /* 3. Responsiveness: @media breakpoint for mobile */
+    @media (max-width: 768px) {
+        body {
+            flex-direction: column;
+            overflow-y: auto;
+        }
+
+        .sidebar {
+            width: 100%;
+            height: auto;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .sidebar-header {
+            border-bottom: none;
+        }
+
+        .nav-links {
+            flex-direction: row;
+            padding: 0 20px;
+        }
+
+        .nav-links li {
+            padding: 10px;
+        }
+        
+        .nav-links li:hover {
+            border-left: none;
+            border-bottom: 4px solid var(--accent-color);
+        }
+        
+        .main-content {
+            overflow-y: visible;
+        }
+    }
+
+    /* 3. Responsiveness: 375px viewport width */
+    @media (max-width: 375px) {
+        .sidebar {
+            flex-direction: column;
+        }
+        .sidebar-header {
+            width: 100%;
+            text-align: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .nav-links {
+            width: 100%;
+            flex-direction: column;
+            text-align: center;
+            padding: 10px 0;
+        }
+        .header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 15px;
+        }
+        .content-wrapper {
+            padding: 15px;
+        }
+        .analytics-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+</head>
+<body>
+
+<aside class="sidebar">
+    <div class="sidebar-header">Dashboard</div>
+    <ul class="nav-links">
+        <li>Overview</li>
+        <li>Analytics</li>
+        <li>Reports</li>
+        <li>Settings</li>
+    </ul>
+</aside>
+
+<main class="main-content">
+    <header class="header">
+        <div class="header-title"><h2>Welcome back, User</h2></div>
+        <nav class="header-nav">
+            <span>Profile</span>
+            <span>Logout</span>
+        </nav>
+    </header>
+
+    <div class="content-wrapper">
+        <section class="analytics-grid">
+            <div class="card">
+                <h3>Total Views</h3>
+                <div class="value">12,456</div>
+            </div>
+            <div class="card">
+                <h3>Active Users</h3>
+                <div class="value">3,892</div>
+            </div>
+            <div class="card">
+                <h3>Revenue</h3>
+                <div class="value">$14,200</div>
+            </div>
+            <div class="card">
+                <h3>Bounce Rate</h3>
+                <div class="value">42%</div>
+            </div>
+        </section>
+
+        <section class="activity-feed">
+            <h2>Recent Activity Feed</h2>
+            <div class="activity-item">User John Doe registered an account. (2 mins ago)</div>
+            <div class="activity-item">Server backup completed successfully. (1 hour ago)</div>
+            <div class="activity-item">New payment received from Client A. (3 hours ago)</div>
+            <div class="activity-item">System update v1.4 applied. (1 day ago)</div>
+        </section>
+    </div>
+</main>
+
+</body>
+</html>
